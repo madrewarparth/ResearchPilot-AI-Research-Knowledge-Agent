@@ -347,38 +347,38 @@ project grows.
 
 ### Phase 1 --- Document ingestion
 
--   [ ] Upload one or more PDFs.
--   [ ] Extract text and handle scanned/image-only PDFs gracefully.
--   [ ] Store document names and page metadata.
--   [ ] Validate empty, encrypted, or unsupported files.
+-   [x] Upload one or more PDFs.
+-   [x] Extract text and handle scanned/image-only PDFs gracefully.
+-   [x] Store document names and page metadata.
+-   [x] Validate empty, encrypted, or unsupported files.
 
 ### Phase 2 --- Retrieval and answers
 
--   [ ] Split text into overlapping chunks.
--   [ ] Generate local embeddings.
--   [ ] Index chunks in Chroma.
--   [ ] Retrieve top relevant passages.
--   [ ] Generate answers using Ollama.
--   [ ] Display citations and source snippets.
--   [ ] Add a clear "insufficient evidence" response.
+-   [x] Split text into overlapping chunks.
+-   [x] Generate local embeddings.
+-   [x] Index chunks in Chroma.
+-   [x] Retrieve top relevant passages.
+-   [x] Generate answers using Ollama.
+-   [x] Display citations and source snippets.
+-   [x] Add a clear "insufficient evidence" response.
 
 ### Phase 3 --- Agent workflow
 
--   [ ] Build a LangGraph state and nodes.
--   [ ] Route questions through retrieval and answer generation.
--   [ ] Add evidence sufficiency checks.
--   [ ] Add a controlled retry or clarification path.
--   [ ] Add optional web search as a separate, clearly cited tool.
+-   [x] Build a LangGraph state and nodes.
+-   [x] Route questions through retrieval and answer generation.
+-   [x] Add evidence sufficiency checks.
+-   [x] Add a controlled retry or clarification path.
+-   [x] Add optional web search as a separate, clearly cited tool.
 
 ### Phase 4 --- Evaluation and polish
 
--   [ ] Create a small set of questions with known supporting passages.
--   [ ] Measure retrieval hit rate or Recall@k.
--   [ ] Review answer faithfulness and citation correctness.
--   [ ] Measure latency and record model/hardware details.
--   [ ] Add automated tests and error handling.
+-   [x] Create a small set of questions with known supporting passages.
+-   [x] Measure retrieval hit rate or Recall@k.
+-   [x] Review answer faithfulness and citation correctness.
+-   [x] Measure latency and record model/hardware details.
+-   [x] Add automated tests and error handling.
 -   [ ] Capture screenshots and a short demo video.
--   [ ] Document limitations and publish a clean GitHub repository.
+-   [x] Document limitations and publish a clean GitHub repository.
 
 ## Evaluation Plan
 

@@ -155,7 +155,12 @@ class ResearchAgent:
             return state
 
         # Compute sufficiency metric based on query term overlap & similarity score
-        query_words = set(re.findall(r'\w{3,}', query.lower())) - {"what", "which", "where", "does", "have", "from", "with"}
+        stop_words = {
+            "what", "which", "where", "does", "have", "from", "with", "was", "were",
+            "the", "and", "for", "are", "about", "how", "why", "who", "when", "can",
+            "tell", "explain", "in", "of", "to", "at", "by", "this", "that", "these"
+        }
+        query_words = set(re.findall(r'\w{3,}', query.lower())) - stop_words
         if not query_words:
             query_words = set(re.findall(r'\w+', query.lower()))
 
@@ -166,7 +171,7 @@ class ResearchAgent:
 
         # Combined sufficiency score: weighted average of similarity and keyword presence
         score = round((top_sim * 0.6) + (keyword_coverage * 0.4), 3)
-        is_sufficient = score >= settings.SUFFICIENCY_THRESHOLD
+        is_sufficient = (score >= settings.SUFFICIENCY_THRESHOLD) or (top_sim >= 0.70) or (keyword_coverage >= 0.60)
 
         trail.append(f"Evidence grading score: {score} (threshold: {settings.SUFFICIENCY_THRESHOLD}) -> {'Sufficient' if is_sufficient else 'Insufficient'}")
         state["sufficiency_score"] = score

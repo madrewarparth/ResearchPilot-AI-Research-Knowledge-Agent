@@ -40,7 +40,7 @@ class Settings:
 
     # Retrieval & Evidence
     TOP_K_RETRIEVAL: int = int(os.getenv("TOP_K_RETRIEVAL", "4"))
-    SIMILARITY_THRESHOLD: float = float(os.getenv("SIMILARITY_THRESHOLD", "0.35"))
+    SIMILARITY_THRESHOLD: float = float(os.getenv("SIMILARITY_THRESHOLD", "0.15"))
     
     # Offline & Fallback Mode
     # If Ollama is not active, ResearchPilot can fall back to local embedding/extractive synthesis

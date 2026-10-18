@@ -1,0 +1,20 @@
+services:
+  researchpilot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: researchpilot-app
+    ports:
+      - "8501:8501"
+    environment:
+      - OLLAMA_HOST=http://host.docker.internal:11434
+      - LLM_MODEL=llama3.2:3b
+      - EMBEDDING_MODEL=nomic-embed-text
+      - CHROMA_PERSIST_DIRECTORY=chroma_db
+      - ENABLE_OFFLINE_FALLBACK=true
+    volumes:
+      - ./chroma_db:/app/chroma_db
+      - ./data:/app/data
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped

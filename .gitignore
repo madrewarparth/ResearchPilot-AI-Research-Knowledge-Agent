@@ -1,0 +1,58 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Vector Store / Local Persistence (Per README: Local index; do not commit generated data)
+chroma_db/
+chroma_db_*
+*.db
+*.sqlite3
+
+# Environment Variables & Secrets
+.env
+.env.local
+.env.*.local
+
+# User Uploaded Documents (Per README: Keep private documents out of Git)
+data/*
+!data/.gitkeep
+
+# Streamlit
+.streamlit/secrets.toml
+
+# Testing & Coverage
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# IDE & OS
+.vscode/
+.idea/
+*.swp
+*.swo
+.DS_Store
+Thumbs.db

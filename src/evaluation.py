@@ -10,7 +10,10 @@ Implements the Evaluation Plan detailed in the README:
 
 import time
 import platform
-import psutil if False else None  # Optional psutil
+try:
+    import psutil
+except ImportError:
+    psutil = None
 from dataclasses import dataclass, field, asdict
 from typing import List, Dict, Any, Optional
 from config import settings

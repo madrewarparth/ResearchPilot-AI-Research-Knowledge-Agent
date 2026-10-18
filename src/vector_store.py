@@ -102,16 +102,21 @@ class ResearchVectorStore:
         return False
 
     def _init_client_and_collection(self):
-        os.makedirs(self.persist_dir, exist_ok=True)
         self._is_ollama_available = self._check_ollama_embed_service()
 
         try:
             import chromadb
             from chromadb.config import Settings as ChromaSettings
-            self.client = chromadb.PersistentClient(
-                path=self.persist_dir,
-                settings=ChromaSettings(anonymized_telemetry=False)
-            )
+            if self.persist_dir == ":memory:":
+                self.client = chromadb.EphemeralClient(
+                    settings=ChromaSettings(anonymized_telemetry=False)
+                )
+            else:
+                os.makedirs(self.persist_dir, exist_ok=True)
+                self.client = chromadb.PersistentClient(
+                    path=self.persist_dir,
+                    settings=ChromaSettings(anonymized_telemetry=False)
+                )
             # Create or get collection
             self.collection = self.client.get_or_create_collection(
                 name=self.collection_name,
